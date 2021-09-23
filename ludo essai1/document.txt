@@ -1,0 +1,17 @@
+To do :
+ start avec l'attribution des equipes /X/
+ start des differentes couleurs /X/
+ sortie des pions /X/
+ les dés /X/
+ Faire les tours /X/
+ le déplacement (qui sera mega long)/C/(finalemnet non)
+ les fins
+ les barrières 
+ choix de qui avance lorsque qulequ-un possède plusieurs pions
+ la fin
+ la prison
+ definition des 6 
+ la chasse
+ la sortie du jugement 
+ definition des chemins par couleur dans un tableau
+ definition des cases dans (position en Y et X) dans un tableau
