@@ -13,5 +13,5 @@ To do :
  definition des 6 
  la chasse
  la sortie du jugement 
- definition des chemins par couleur dans un tableau
- definition des cases dans (position en Y et X) dans un tableau
+ definition des cases dans (position en Y et X) dans un tableau/C/
+ coriger le positions de départ

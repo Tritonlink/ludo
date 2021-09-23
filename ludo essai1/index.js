@@ -2,105 +2,25 @@ const yp1 = document.getElementById("y1");
 const yp2 = document.getElementById("y2");
 const yp3 = document.getElementById("y3");
 const yp4 = document.getElementById("y4");
-const yCases1 = document.getElementsByClassName("yc1_");
-const yCases2 = document.getElementsByClassName("ysc2_");
-const yCases3 = document.getElementsByClassName("yc3_");
-const yc11 = document.querySelector("#yc1_1");
-const yc12 = document.querySelector("#yc1_2");
-const yc13 = document.querySelector("#yc1_3");
-const yc14 = document.querySelector("#yc1_4");
-const yc15 = document.querySelector("#yc1_5");
-const yc16 = document.querySelector("#yc1_6");
-const ysc21 = document.querySelector("#ysc2_1");
-const ysc22 = document.querySelector("#ysc2_2");
-const ysc23 = document.querySelector("#ysc2_3");
-const ysc24 = document.querySelector("#ysc2_4");
-const ysc25 = document.querySelector("#ysc2_5");
-const ysc26 = document.querySelector("#ysc2_6");
-const yc31 = document.querySelector("#yc3_1");
-const yc32 = document.querySelector("#yc3_2");
-const yc33 = document.querySelector("#yc3_3");
-const yc34 = document.querySelector("#yc3_4");
-const yc35 = document.querySelector("#yc3_5");
-const yc36 = document.querySelector("#yc3_6");
+const yp = document.getElementsByClassName("yp");
 
 const gp1 = document.getElementById("g1");
 const gp2 = document.getElementById("g2");
 const gp3 = document.getElementById("g3");
 const gp4 = document.getElementById("g4");
-const gCases1 = document.getElementsByClassName("gc1_");
-const gCases2 = document.getElementsByClassName("gsc2_");
-const gCases3 = document.getElementsByClassName("gc3_");
-const gc11 = document.querySelector("#gc1_1");
-const gc12 = document.querySelector("#gc1_2");
-const gc13 = document.querySelector("#gc1_3");
-const gc14 = document.querySelector("#gc1_4");
-const gc15 = document.querySelector("#gc1_5");
-const gc16 = document.querySelector("#gc1_6");
-const gsc21 = document.querySelector("#gsc2_1");
-const gsc22 = document.querySelector("#gsc2_2");
-const gsc23 = document.querySelector("#gsc2_3");
-const gsc24 = document.querySelector("#gsc2_4");
-const gsc25 = document.querySelector("#gsc2_5");
-const gsc26 = document.querySelector("#gsc2_6");
-const gc31 = document.querySelector("#gc3_1");
-const gc32 = document.querySelector("#gc3_2");
-const gc33 = document.querySelector("#gc3_3");
-const gc34 = document.querySelector("#gc3_4");
-const gc35 = document.querySelector("#gc3_5");
-const gc36 = document.querySelector("#gc3_6");
+const gp = document.getElementsByClassName("gp");
 
 const rp1 = document.getElementById("r1");
 const rp2 = document.getElementById("r2");
 const rp3 = document.getElementById("r3");
 const rp4 = document.getElementById("r4");
-const rCases1 = document.getElementsByClassName("rc1_");
-const rCases2 = document.getElementsByClassName("rsc2_");
-const rCases3 = document.getElementsByClassName("rc3_");
-const rc11 = document.querySelector("#rc1_1");
-const rc12 = document.querySelector("#rc1_2");
-const rc13 = document.querySelector("#rc1_3");
-const rc14 = document.querySelector("#rc1_4");
-const rc15 = document.querySelector("#rc1_5");
-const rc16 = document.querySelector("#rc1_6");
-const rsc21 = document.querySelector("#rsc2_1");
-const rsc22 = document.querySelector("#rsc2_2");
-const rsc23 = document.querySelector("#rsc2_3");
-const rsc24 = document.querySelector("#rsc2_4");
-const rsc25 = document.querySelector("#rsc2_5");
-const rsc26 = document.querySelector("#rsc2_6");
-const rc31 = document.querySelector("#rc3_1");
-const rc32 = document.querySelector("#rc3_2");
-const rc33 = document.querySelector("#rc3_3");
-const rc34 = document.querySelector("#rc3_4");
-const rc35 = document.querySelector("#rc3_5");
-const rc36 = document.querySelector("#rc3_6");
+const rp = document.getElementsByClassName("rp");
 
 const bp1 = document.getElementById("b1");
 const bp2 = document.getElementById("b2");
 const bp3 = document.getElementById("b3");
 const bp4 = document.getElementById("b4");
-const bCases1 = document.getElementsByClassName("bc1_");
-const bCases2 = document.getElementsByClassName("bsc2_");
-const bCases3 = document.getElementsByClassName("bc3_");
-const bc11 = document.querySelector("#bc1_1");
-const bc12 = document.querySelector("#bc1_2");
-const bc13 = document.querySelector("#bc1_3");
-const bc14 = document.querySelector("#bc1_4");
-const bc15 = document.querySelector("#bc1_5");
-const bc16 = document.querySelector("#bc1_6");
-const bsc21 = document.querySelector("#bsc2_1");
-const bsc22 = document.querySelector("#bsc2_2");
-const bsc23 = document.querySelector("#bsc2_3");
-const bsc24 = document.querySelector("#bsc2_4");
-const bsc25 = document.querySelector("#bsc2_5");
-const bsc26 = document.querySelector("#bsc2_6");
-const bc31 = document.querySelector("#bc3_1");
-const bc32 = document.querySelector("#bc3_2");
-const bc33 = document.querySelector("#bc3_3");
-const bc34 = document.querySelector("#bc3_4");
-const bc35 = document.querySelector("#bc3_5");
-const bc36 = document.querySelector("#bc3_6");
+const bp = document.getElementsByClassName("bp");
 
 const c = document.querySelector(".c");
 const random = document.querySelector(".random");
@@ -110,7 +30,7 @@ const p3 = document.getElementById("p3");
 const p4 = document.getElementById("p4");
 const h4 = document.getElementById("h4");
 const turnTimer = document.getElementById("turnTimer");
-console.log(numberPlaying);
+console.log();
 let d;
 let turns;
 let permitedTurn;
@@ -118,305 +38,254 @@ const yellowStartTop = "109px";
 const yellowStartleft = "37px";
 const blueStartLeft = "170px";
 const blueStartTop = "40px";
-const greenStartTop = "250px";
+const greenStartTop = "245px";
 const greenStartLeft = "110px";
-const redStartTop = "177px";
+const redStartTop = "175px";
 const redStartLeft = "246px";
 let yPosCases = [
   [yellowStartTop, yellowStartleft],
   ["109px", "53px"],
   ["109px", "65px"],
   ["109px", "82px"],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
+  //blue
+  ["77px", "113px"],
+  ["63px", "113px"],
+  ["46px", "113px"],
+  ["30px", "113px"],
+  ["15px", "113px"],
+  ["10px", "113px"],
+  ["10px", "148px"],
+  ["10px", "178px"],
+  ["25px", "178px"],
+  ["40px", "178px"],
+  ["56px", "178px"],
+  ["73px", "178px"],
+  ["87px", "178px"],
+  //red
+  ["114px", "200px"],
+  ["114px", "217px"],
+  ["114px", "234px"],
+  ["114px", "251px"],
+  ["114px", "268px"],
+  ["114px", "283px"],
+  ["143px", "283px"],
+  ["175px", "283px"],
+  ["175px", "252px"],
+  ["175px", "246px"],
+  ["175px", "230px"],
+  ["175px", "213px"],
+  ["175px", "201px"],
+  //green
+  ["200px", "174px"],
+  ["215px", "174px"],
+  ["230px", "174px"],
+  ["245px", "174px"],
+  ["260px", "174px"],
+  ["276px", "174px"],
+  ["276px", "143px"],
+  ["276px", "110px"],
+  ["260px", "110px"],
+  ["240px", "110px"],
+  ["220px", "110px"],
+  ["200px", "110px"],
+  ["180px", "110px"],
+  //yellow
+  ["175px", "83px"],
+  ["175px", "75px"],
+  ["175px", "60px"],
+  ["175px", "40px"],
+  ["175px", "30px"],
+  ["175px", "16px"],
+  ["140px", "16px"],
+  ["140px", "30px"],
+  ["140px", "45px"],
+  ["140px", "60px"],
+  ["140px", "75px"],
+  ["140px", "83px"],
+  ["110px", "110px"],
 ];
 let gPosCases = [
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
+  [greenStartTop, greenStartLeft],
+  ["225px", "110px"],
+  ["210px", "110px"],
+  ["195px", "110px"],
+  //yellow
+  ["175px", "83px"],
+  ["175px", "75px"],
+  ["175px", "60px"],
+  ["175px", "40px"],
+  ["175px", "30px"],
+  ["175px", "16px"],
+  ["140px", "16px"],
+  ["115px", "16px"],
+  ["115px", "30px"],
+  [yellowStartTop, yellowStartleft],
+  ["109px", "53px"],
+  ["109px", "65px"],
+  ["109px", "82px"],
+  //blue
+  ["77px", "113px"],
+  ["63px", "113px"],
+  ["46px", "113px"],
+  ["30px", "113px"],
+  ["15px", "113px"],
+  ["10px", "113px"],
+  ["10px", "148px"],
+  ["10px", "178px"],
+  ["25px", "178px"],
+  ["40px", "178px"],
+  ["56px", "178px"],
+  ["73px", "178px"],
+  ["87px", "178px"],
+  //red
+  ["114px", "200px"],
+  ["114px", "217px"],
+  ["114px", "234px"],
+  ["114px", "251px"],
+  ["114px", "268px"],
+  ["114px", "283px"],
+  ["143px", "283px"],
+  ["175px", "283px"],
+  ["175px", "252px"],
+  ["175px", "246px"],
+  ["175px", "230px"],
+  ["175px", "213px"],
+  ["175px", "201px"],
+  //green
+  ["200px", "174px"],
+  ["215px", "174px"],
+  ["230px", "174px"],
+  ["245px", "174px"],
+  ["260px", "174px"],
+  ["276px", "174px"],
+  ["276px", "143px"],
+  ["260px", "143px"],
+  ["245px", "143px"],
+  ["230px", "143px"],
+  ["215px", "143px"],
+  ["200px", "143px"],
 ];
 let rPosCases = [
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
+  [redStartTop, redStartLeft],
+  ["175px", "230px"],
+  ["175px", "213px"],
+  ["175px", "201px"],
+  //green
+  ["200px", "174px"],
+  ["215px", "174px"],
+  ["230px", "174px"],
+  ["245px", "174px"],
+  ["260px", "174px"],
+  ["276px", "174px"],
+  ["276px", "143px"],
+  ["276px", "110px"],
+  ["260px", "110px"],
+  ["240px", "110px"],
+  ["220px", "110px"],
+  ["200px", "110px"],
+  ["180px", "110px"],
+  //yellow
+  ["175px", "83px"],
+  ["175px", "75px"],
+  ["175px", "60px"],
+  ["175px", "40px"],
+  ["175px", "30px"],
+  ["175px", "16px"],
+  ["140px", "16px"],
+  ["115px", "16px"],
+  ["115px", "30px"],
+  [yellowStartTop, yellowStartleft],
+  ["109px", "53px"],
+  ["109px", "65px"],
+  ["109px", "82px"],
+  //blue
+  ["77px", "113px"],
+  ["63px", "113px"],
+  ["46px", "113px"],
+  ["30px", "113px"],
+  ["15px", "113px"],
+  ["10px", "113px"],
+  ["10px", "148px"],
+  ["10px", "178px"],
+  ["25px", "178px"],
+  ["40px", "178px"],
+  ["56px", "178px"],
+  ["73px", "178px"],
+  ["87px", "178px"],
+  //red
+  ["114px", "200px"],
+  ["114px", "217px"],
+  ["114px", "234px"],
+  ["114px", "251px"],
+  ["114px", "268px"],
+  ["114px", "283px"],
+  ["143px", "283px"],
+  ["143px", "268px"],
+  ["143px", "251px"],
+  ["143px", "234px"],
+  ["143px", "217px"],
+  ["143px", "200px"],
 ];
 let bPosCases = [
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
+  [blueStartTop, blueStartLeft],
+  ["", ""],
+  ["", ""],
+  ["", ""],
+  //red
+  ["114px", "200px"],
+  ["114px", "217px"],
+  ["114px", "234px"],
+  ["114px", "251px"],
+  ["114px", "268px"],
+  ["114px", "283px"],
+  ["143px", "283px"],
+  ["175px", "283px"],
+  ["175px", "252px"],
+  ["175px", "246px"],
+  ["175px", "230px"],
+  ["175px", "213px"],
+  ["175px", "201px"],
+  //green
+  ["200px", "174px"],
+  ["215px", "174px"],
+  ["230px", "174px"],
+  ["245px", "174px"],
+  ["260px", "174px"],
+  ["276px", "174px"],
+  ["276px", "143px"],
+  ["276px", "110px"],
+  ["260px", "110px"],
+  ["240px", "110px"],
+  ["220px", "110px"],
+  ["200px", "110px"],
+  ["180px", "110px"],
+  //yellow
+  ["175px", "83px"],
+  ["175px", "75px"],
+  ["175px", "60px"],
+  ["175px", "40px"],
+  ["175px", "30px"],
+  ["175px", "16px"],
+  ["140px", "16px"],
+  ["115px", "16px"],
+  ["115px", "30px"],
+  [yellowStartTop, yellowStartleft],
+  ["109px", "53px"],
+  ["109px", "65px"],
+  ["109px", "82px"],
+  //blue
+  ["77px", "113px"],
+  ["63px", "113px"],
+  ["46px", "113px"],
+  ["30px", "113px"],
+  ["15px", "113px"],
+  ["10px", "113px"],
+  ["10px", "148px"],
+  ["15px", "148px"],
+  ["30px", "148px"],
+  ["46px", "148px"],
+  ["63px", "148px"],
+  ["77px", "148px"],
 ];
 let size = "10px";
 let player1 = {
@@ -435,6 +304,26 @@ let player4 = {
   equipe: "",
   playing: true,
 };
+let yApos = 0;
+let yNPos = 1;
+
+let gApos = 0;
+let gNPos = 0;
+
+let rApos = 0;
+let rNPos = 0;
+
+let bapos = 0;
+let bNpos = 0;
+
+let topYellow = yPosCases[yNPos][0];
+let leftYellow = yPosCases[yNPos][1];
+let topGreen = gPosCases[gNPos][0];
+let leftGreen = gPosCases[gNPos][1];
+let topRed = rPosCases[rNPos][0];
+let leftRed = rPosCases[rNPos][1];
+let topBlue = bPosCases[bNpos][0];
+let leftBlue = bPosCases[bNpos][1];
 let numberGoingPlaying = 0;
 p2.addEventListener("click", () => {
   selectNumberPlaying(p2);
@@ -493,8 +382,8 @@ const start = (y) => {
     case yp3:
     case yp4:
       y.style.position = "absolute";
-      y.style.top = yellowStartTop;
-      y.style.left = yellowStartleft;
+      y.style.top = topYellow;
+      y.style.left = leftYellow;
       y.style.transform = "translate(-25%, -30%)";
       y.style.height = size;
       y.style.width = size;
@@ -504,8 +393,8 @@ const start = (y) => {
     case gp3:
     case gp4:
       y.style.position = "absolute";
-      y.style.top = greenStartTop;
-      y.style.left = greenStartLeft;
+      y.style.top = topGreen;
+      y.style.left = leftGreen;
       y.style.transform = "translate(-25%, -30%)";
       y.style.height = size;
       y.style.width = size;
@@ -515,8 +404,8 @@ const start = (y) => {
     case rp3:
     case rp4:
       y.style.position = "absolute";
-      y.style.top = redStartTop;
-      y.style.left = redStartLeft;
+      y.style.top = topRed;
+      y.style.left = leftRed;
       y.style.transform = "translate(-25%, -30%)";
       y.style.height = size;
       y.style.width = size;
@@ -526,8 +415,8 @@ const start = (y) => {
     case bp3:
     case bp4:
       y.style.position = "absolute";
-      y.style.top = blueStartTop;
-      y.style.left = blueStartLeft;
+      y.style.top = topBlue;
+      y.style.left = leftBlue;
       y.style.transform = "translate(-25%, -30%)";
       y.style.height = size;
       y.style.width = size;
