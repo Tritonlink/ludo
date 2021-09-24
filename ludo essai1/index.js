@@ -374,6 +374,7 @@ const allStart = () => {
       break;
   }
   guiTurn();
+  systemTurn();
 };
 const start = (y) => {
   switch (y) {
@@ -423,14 +424,15 @@ const start = (y) => {
       break;
   }
 };
-const des = () => {
+const des = (nX, nY) => {
   random.addEventListener("click", () => {
     d = Math.floor(Math.random() * 6 + 1);
     console.log(d);
     h4.textContent = d;
+    nX += d;
+    nY = nX;
   });
 };
-des();
 const guiTurn = () => {
   if (player4.playing == false && player3.playing == true) {
     console.log("3 joueurs");
@@ -520,68 +522,32 @@ const systemTurn = () => {
   }
   switch (permitedTurn) {
     case 1:
-      yp1.addEventListener("click", () => {
-        if (permitedTurn === 1) {
-          console.log("c'est bien le tour des jaunes");
-        }
-      });
-      yp2.addEventListener("click", () => {
-        if (permitedTurn === 1) {
-          console.log("c'est bien le tour des jaunes");
-        }
-      });
-      yp3.addEventListener("click", () => {
-        if (permitedTurn === 1) {
-          console.log("c'est bien le tour des jaunes");
-        }
-      });
-      yp4.addEventListener("click", () => {
-        if (permitedTurn === 1) {
-          console.log("c'est bien le tour des jaunes");
-        }
+      yp.forEach((pions) => {
+        pions.addEventListener("click", () => {
+          if (permitedTurn === 1) {
+            des(yNPos, yApos);
+            start(pions);
+          } else {
+            console.log("ce n'est pas le tour des jaunes");
+          }
+        });
       });
       break;
     case 2:
-      gp1.addEventListener("click", () => {
+      gp.forEach((pions) => {
         if (permitedTurn === 2) {
-          console.log("c'est bien le tour des jaunes");
-        }
-      });
-      gp2.addEventListener("click", () => {
-        if (permitedTurn === 2) {
-          console.log("c'est bien le tour des jaunes");
-        }
-      });
-      gp3.addEventListener("click", () => {
-        if (permitedTurn === 2) {
-          console.log("c'est bien le tour des jaunes");
-        }
-      });
-      gp4.addEventListener("click", () => {
-        if (permitedTurn === 2) {
-          console.log("c'est bien le tour des jaunes");
+          des(gNPos, gApos);
+          start(pions);
+        } else {
+          console.log("pas les verts");
         }
       });
       break;
     case 3:
-      rp1.addEventListener("click", () => {
+      rp.forEach((pions) => {
         if (permitedTurn === 3) {
-          console.log("c'est bien le tour des jaunes");
-        }
-      });
-      rp2.addEventListener("click", () => {
-        if (permitedTurn === 3) {
-          console.log("c'est bien le tour des jaunes");
-        }
-      });
-      rp3.addEventListener("click", () => {
-        if (permitedTurn === 3) {
-          console.log("c'est bien le tour des jaunes");
-        }
-      });
-      rp4.addEventListener("click", () => {
-        if (permitedTurn === 3) {
-          console.log("c'est bien le tour des jaunes");
+          des(rNPos, rApos);
+          start(pions);
         }
       });
       break;
