@@ -424,13 +424,11 @@ const start = (y) => {
       break;
   }
 };
-const des = (nX, nY) => {
+const des = () => {
   random.addEventListener("click", () => {
     d = Math.floor(Math.random() * 6 + 1);
     console.log(d);
     h4.textContent = d;
-    nX += d;
-    nY = nX;
   });
 };
 const guiTurn = () => {
@@ -483,99 +481,45 @@ const guiTurn = () => {
 const systemTurn = () => {
   switch (numberGoingPlaying) {
     case 2:
-      setInterval(() => {
-        setTimeout(() => {
-          permitedTurn = 1;
-          setTimeout(() => {
-            permitedTurn = 2;
-          }, 12000);
-        }, 12000);
-      }, 12000 * 2);
+      permitedTurn = 1;
+      setTimeout(() => {
+        permitedTurn = 2;
+      }, 12000);
       break;
     case 3:
-      setInterval(() => {
+      permitedTurn = 1;
+      setTimeout(() => {
+        permitedTurn = 2;
         setTimeout(() => {
-          permitedTurn = 1;
-          setTimeout(() => {
-            permitedTurn = 2;
-            setTimeout(() => {
-              permitedTurn = 3;
-            }, 12000);
-          }, 12000);
+          permitedTurn = 3;
         }, 12000);
-      }, 12000 * 3);
+      }, 12000);
       break;
     case 4:
-      setInterval(() => {
-        permitedTurn = 1;
+      permitedTurn = 1;
+      setTimeout(() => {
+        permitedTurn = 2;
         setTimeout(() => {
-          permitedTurn = 2;
+          permitedTurn = 3;
           setTimeout(() => {
-            permitedTurn = 3;
-            setTimeout(() => {
-              permitedTurn = 4;
-            }, 12000);
+            permitedTurn = 4;
           }, 12000);
         }, 12000);
-      }, 12000 * 4);
+      }, 12000);
       break;
   }
-  switch (permitedTurn) {
-    case 1:
-      yp.forEach((pions) => {
-        pions.addEventListener("click", () => {
-          if (permitedTurn === 1) {
+  setInterval(() => {
+    switch (permitedTurn) {
+      case 1:
+      case 2:
+      case 3:
+      case 4:
+        yp1.addEventListener("click", () => {
+          if (permitedTurn == 1) {
             des(yNPos, yApos);
-            start(pions);
-          } else {
-            console.log("ce n'est pas le tour des jaunes");
           }
         });
-      });
-      break;
-    case 2:
-      gp.forEach((pions) => {
-        if (permitedTurn === 2) {
-          des(gNPos, gApos);
-          start(pions);
-        } else {
-          console.log("pas les verts");
-        }
-      });
-      break;
-    case 3:
-      rp.forEach((pions) => {
-        if (permitedTurn === 3) {
-          des(rNPos, rApos);
-          start(pions);
-        }
-      });
-      break;
-    case 4:
-      bp1.addEventListener("click", () => {
-        if (permitedTurn === 4) {
-          console.log("c'est bien le tour des jaunes");
-        }
-      });
-      bp2.addEventListener("click", () => {
-        if (permitedTurn === 4) {
-          console.log("c'est bien le tour des jaunes");
-        }
-      });
-      bp3.addEventListener("click", () => {
-        if (permitedTurn === 4) {
-          console.log("c'est bien le tour des jaunes");
-        }
-      });
-      bp4.addEventListener("click", () => {
-        if (permitedTurn === 4) {
-          console.log("c'est bien le tour des jaunes");
-        }
-      });
-      break;
-
-    default:
-      console.log("la fonction permitedTurn a un problème");
-      break;
-  }
+        break;
+    }
+  }, 12000);
 };
