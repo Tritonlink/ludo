@@ -269,3 +269,20 @@ h4 {
   font-size: 2rem;
   text-align: center;
 }
+
+#p2 {
+  border: 1px solid black;
+  border-radius: 5px;
+  background: wheat;
+}
+#p3 {
+  border: 1px solid black;
+  border-radius: 5px;
+  background: wheat;
+  border: 1px solid black;
+}
+#p4 {
+  border: 1px solid black;
+  border-radius: 5px;
+  background: wheat;
+}

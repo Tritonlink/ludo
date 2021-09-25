@@ -43,7 +43,7 @@ const greenStartLeft = "110px";
 const redStartTop = "175px";
 const redStartLeft = "246px";
 let yPosCases = [
-  [yellowStartTop, yellowStartleft],
+  [0, 0][(yellowStartTop, yellowStartleft)],
   ["109px", "53px"],
   ["109px", "65px"],
   ["109px", "82px"],
@@ -105,7 +105,7 @@ let yPosCases = [
   ["110px", "110px"],
 ];
 let gPosCases = [
-  [greenStartTop, greenStartLeft],
+  [0, 0][(greenStartTop, greenStartLeft)],
   ["225px", "110px"],
   ["210px", "110px"],
   ["195px", "110px"],
@@ -166,7 +166,7 @@ let gPosCases = [
   ["200px", "143px"],
 ];
 let rPosCases = [
-  [redStartTop, redStartLeft],
+  [0, 0][(redStartTop, redStartLeft)],
   ["175px", "230px"],
   ["175px", "213px"],
   ["175px", "201px"],
@@ -227,10 +227,11 @@ let rPosCases = [
   ["143px", "200px"],
 ];
 let bPosCases = [
-  [blueStartTop, blueStartLeft],
-  ["", ""],
-  ["", ""],
-  ["", ""],
+  [0, 0][(blueStartTop, blueStartLeft)],
+  ["40px", "178px"],
+  ["56px", "178px"],
+  ["73px", "178px"],
+  ["87px", "178px"],
   //red
   ["114px", "200px"],
   ["114px", "217px"],
@@ -304,27 +305,207 @@ let player4 = {
   equipe: "",
   playing: true,
 };
-let yApos = 0;
-let yNPos = 1;
+let eY1 = 1;
+let eY2 = 2;
+let eY3 = 3;
+let eY4 = 4;
 
-let gApos = 0;
-let gNPos = 0;
+let eG1 = 1;
+let eG2 = 2;
+let eG3 = 3;
+let eG4 = 4;
 
-let rApos = 0;
-let rNPos = 0;
+let eR1 = 1;
+let eR2 = 2;
+let eR3 = 3;
+let eR4 = 4;
 
-let bapos = 0;
-let bNpos = 0;
+let eB1 = 1;
+let eB2 = 2;
+let eB3 = 3;
+let eB4 = 4;
 
-let topYellow = yPosCases[yNPos][0];
-let leftYellow = yPosCases[yNPos][1];
-let topGreen = gPosCases[gNPos][0];
-let leftGreen = gPosCases[gNPos][1];
-let topRed = rPosCases[rNPos][0];
-let leftRed = rPosCases[rNPos][1];
-let topBlue = bPosCases[bNpos][0];
-let leftBlue = bPosCases[bNpos][1];
+let topYellow = yPosCases[1][0];
+let leftYellow = yPosCases[1][1];
+let topGreen = gPosCases[1][0];
+let leftGreen = gPosCases[1][1];
+let topRed = rPosCases[1][0];
+let leftRed = rPosCases[1][1];
+let topBlue = bPosCases[1][0];
+let leftBlue = bPosCases[1][1];
 let numberGoingPlaying = 0;
+const verif = (p) => {
+  switch (p) {
+    case yp1:
+      eY1 += d;
+      topYellow = yPosCases[eY1][0];
+      leftYellow = yPosCases[eY1][1];
+      start(yp1);
+      break;
+    case yp2:
+      eY2 += d;
+      topYellow = yPosCases[eY2][0];
+      leftYellow = yPosCases[eY2][1];
+      start(yp2);
+      break;
+    case yp3:
+      eY3 += d;
+      topYellow = yPosCases[eY3][0];
+      leftYellow = yPosCases[eY3][1];
+      start(yp3);
+      break;
+    case yp4:
+      eY4 += d;
+      topYellow = yPosCases[eY4][0];
+      leftYellow = yPosCases[eY4][1];
+      start(yp4);
+      break;
+
+    case gp1:
+      eG1 += d;
+      topGreen = gPosCases[eG1][0];
+      leftGreen = gPosCases[eG1][1];
+      start(gp1);
+      break;
+    case gp2:
+      eG2 += d;
+      topGreen = gPosCases[eG2][0];
+      leftGreen = gPosCases[eG2][1];
+      start(gp2);
+      break;
+    case gp3:
+      eG3 += d;
+      topGreen = gPosCases[eG3][0];
+      leftGreen = gPosCases[eG3][1];
+      start(gp3);
+      break;
+    case gp4:
+      eG4 += d;
+      topGreen = gPosCases[eG4][0];
+      leftGreen = gPosCases[eG4][1];
+      start(gp4);
+      break;
+
+    case rp1:
+      eR1 += d;
+      topRed = rPosCases[eR1][0];
+      leftRed = rPosCases[eR1][1];
+      start(rp1);
+      break;
+    case rp2:
+      eR2 += d;
+      topRed = rPosCases[eR2][0];
+      leftRed = rPosCases[eR2][1];
+      start(rp2);
+      break;
+    case rp3:
+      eR3 += d;
+      topRed = rPosCases[eR3][0];
+      leftRed = rPosCases[eR3][1];
+      start(rp3);
+      break;
+    case rp4:
+      eR4 += d;
+      topRed = rPosCases[eR4][0];
+      leftRed = rPosCases[eR4][1];
+      start(rp4);
+      break;
+
+    case bp1:
+      eB1 += d;
+      topBlue = bPosCases[eB1][0];
+      leftBlue = bPosCases[eB1][1];
+      start(bp1);
+      break;
+    case bp2:
+      eB2 += d;
+      topBlue = bPosCases[eB2][0];
+      leftYellow = bPosCases[eB2][1];
+      start(bp2);
+      break;
+    case bp3:
+      eB3 += d;
+      topBlue = bPosCases[eB3][0];
+      leftBlue = bPosCases[eB3][1];
+      start(bp3);
+      break;
+    case bp4:
+      eB4 += d;
+      topBlue = bPosCases[eB4][0];
+      leftBlue = bPosCases[eB4][1];
+      start(bp4);
+      break;
+  }
+};
+function randomFunction(p) {
+  d = Math.floor(Math.random() * 6 + 1);
+  h4.textContent = d;
+  switch (p) {
+    case yp1:
+      verif(yp1);
+      break;
+
+    case yp2:
+      verif(yp2);
+      break;
+
+    case yp3:
+      verif(yp3);
+      break;
+
+    case yp4:
+      verif(yp4);
+      break;
+
+    case gp1:
+      verif(gp1);
+      break;
+
+    case gp2:
+      verif(gp2);
+      break;
+
+    case gp3:
+      verif(gp3);
+      break;
+
+    case gp4:
+      verif(gp4);
+      break;
+
+    case rp1:
+      verif(rp1);
+      break;
+
+    case rp2:
+      verif(rp2);
+      break;
+
+    case rp3:
+      verif(rp3);
+      break;
+
+    case rp4:
+      verif(rp4);
+      break;
+
+    case bp1:
+      verif(bp1);
+      break;
+
+    case bp2:
+      verif(bp2);
+      break;
+
+    case bp3:
+      verif(bp3);
+      break;
+
+    case bp4:
+      verif(bp4);
+      break;
+  }
+}
 p2.addEventListener("click", () => {
   selectNumberPlaying(p2);
 });
@@ -374,62 +555,37 @@ const allStart = () => {
       break;
   }
   guiTurn();
-  systemTurn();
+  setInterval(() => {
+    systemTurn();
+  }, 12000 * numberGoingPlaying);
 };
 const start = (y) => {
   switch (y) {
-    case yp1:
-    case yp2:
-    case yp3:
-    case yp4:
+    case yp1 || yp2 || yp3 || yp4:
       y.style.position = "absolute";
       y.style.top = topYellow;
       y.style.left = leftYellow;
       y.style.transform = "translate(-25%, -30%)";
-      y.style.height = size;
-      y.style.width = size;
       break;
-    case gp1:
-    case gp2:
-    case gp3:
-    case gp4:
+    case gp1 || gp2 || gp3 || gp4:
       y.style.position = "absolute";
       y.style.top = topGreen;
       y.style.left = leftGreen;
       y.style.transform = "translate(-25%, -30%)";
-      y.style.height = size;
-      y.style.width = size;
       break;
-    case rp1:
-    case rp2:
-    case rp3:
-    case rp4:
-      y.style.position = "absolute";
-      y.style.top = topRed;
-      y.style.left = leftRed;
-      y.style.transform = "translate(-25%, -30%)";
-      y.style.height = size;
-      y.style.width = size;
-      break;
-    case bp1:
-    case bp2:
-    case bp3:
-    case bp4:
+    case bp1 || bp2 || bp3 || bp4:
       y.style.position = "absolute";
       y.style.top = topBlue;
       y.style.left = leftBlue;
-      y.style.transform = "translate(-25%, -30%)";
-      y.style.height = size;
-      y.style.width = size;
+      y.style.transform = "transform(-25%, -30%)";
+      break;
+    case rp1 || rp2 || rp3 || rp4:
+      y.style.position = "absolute";
+      y.style.top = topRed;
+      y.style.left = leftRed;
+      y.style.transform = "transform(-25%, -30%)";
       break;
   }
-};
-const des = () => {
-  random.addEventListener("click", () => {
-    d = Math.floor(Math.random() * 6 + 1);
-    console.log(d);
-    h4.textContent = d;
-  });
 };
 const guiTurn = () => {
   if (player4.playing == false && player3.playing == true) {
@@ -481,45 +637,42 @@ const guiTurn = () => {
 const systemTurn = () => {
   switch (numberGoingPlaying) {
     case 2:
-      permitedTurn = 1;
-      setTimeout(() => {
-        permitedTurn = 2;
-      }, 12000);
+      setInterval(() => {
+        permitedTurn = 1;
+        setTimeout(() => {
+          permitedTurn = 2;
+        }, 12000);
+      }, 12000 * 2);
       break;
     case 3:
-      permitedTurn = 1;
-      setTimeout(() => {
-        permitedTurn = 2;
+      setInterval(() => {
+        permitedTurn = 1;
         setTimeout(() => {
-          permitedTurn = 3;
-        }, 12000);
-      }, 12000);
-      break;
-    case 4:
-      permitedTurn = 1;
-      setTimeout(() => {
-        permitedTurn = 2;
-        setTimeout(() => {
-          permitedTurn = 3;
+          permitedTurn = 2;
           setTimeout(() => {
-            permitedTurn = 4;
+            permitedTurn = 3;
           }, 12000);
         }, 12000);
-      }, 12000);
+      }, 12000 * 3);
+      break;
+    case 4:
+      setInterval(() => {
+        permitedTurn = 1;
+        setTimeout(() => {
+          permitedTurn = 2;
+          setTimeout(() => {
+            permitedTurn = 3;
+            setTimeout(() => {
+              permitedTurn = 4;
+            }, 12000);
+          }, 12000);
+        }, 12000);
+      }, 12000 * 4);
       break;
   }
-  setInterval(() => {
-    switch (permitedTurn) {
-      case 1:
-      case 2:
-      case 3:
-      case 4:
-        yp1.addEventListener("click", () => {
-          if (permitedTurn == 1) {
-            des(yNPos, yApos);
-          }
-        });
-        break;
-    }
-  }, 12000);
+  switch (permitedTurn) {
+    case 1:
+      randomFunction(yp1);
+      break;
+  }
 };
