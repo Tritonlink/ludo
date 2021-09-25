@@ -43,7 +43,8 @@ const greenStartLeft = "110px";
 const redStartTop = "175px";
 const redStartLeft = "246px";
 let yPosCases = [
-  [0, 0][(yellowStartTop, yellowStartleft)],
+  [0, 0],
+  ["109px", "37px"],
   ["109px", "53px"],
   ["109px", "65px"],
   ["109px", "82px"],
@@ -105,7 +106,8 @@ let yPosCases = [
   ["110px", "110px"],
 ];
 let gPosCases = [
-  [0, 0][(greenStartTop, greenStartLeft)],
+  [0, 0],
+  ["245px", "110px"],
   ["225px", "110px"],
   ["210px", "110px"],
   ["195px", "110px"],
@@ -166,7 +168,8 @@ let gPosCases = [
   ["200px", "143px"],
 ];
 let rPosCases = [
-  [0, 0][(redStartTop, redStartLeft)],
+  [0, 0],
+  [redStartTop, redStartLeft],
   ["175px", "230px"],
   ["175px", "213px"],
   ["175px", "201px"],
@@ -227,7 +230,8 @@ let rPosCases = [
   ["143px", "200px"],
 ];
 let bPosCases = [
-  [0, 0][(blueStartTop, blueStartLeft)],
+  [0, 0],
+  [blueStartTop, blueStartLeft],
   ["40px", "178px"],
   ["56px", "178px"],
   ["73px", "178px"],
@@ -288,6 +292,65 @@ let bPosCases = [
   ["63px", "148px"],
   ["77px", "148px"],
 ];
+let translatedPosCases = [
+  [0, 0],
+  ["175px", "83px"],
+  ["175px", "75px"],
+  ["109px", "37px"],
+  ["109px", "53px"],
+  ["109px", "65px"],
+  ["109px", "82px"],
+  //blue
+  ["77px", "113px"],
+  ["63px", "113px"],
+  ["46px", "113px"],
+  ["30px", "113px"],
+  ["15px", "113px"],
+  ["10px", "113px"],
+  ["10px", "148px"],
+  ["10px", "178px"],
+  ["25px", "178px"],
+  ["40px", "178px"],
+  ["56px", "178px"],
+  ["73px", "178px"],
+  ["87px", "178px"],
+  //red
+  ["114px", "200px"],
+  ["114px", "217px"],
+  ["114px", "234px"],
+  ["114px", "251px"],
+  ["114px", "268px"],
+  ["114px", "283px"],
+  ["143px", "283px"],
+  ["175px", "283px"],
+  ["175px", "252px"],
+  ["175px", "246px"],
+  ["175px", "230px"],
+  ["175px", "213px"],
+  ["175px", "201px"],
+  //green
+  ["200px", "174px"],
+  ["215px", "174px"],
+  ["230px", "174px"],
+  ["245px", "174px"],
+  ["260px", "174px"],
+  ["276px", "174px"],
+  ["276px", "143px"],
+  ["276px", "110px"],
+  ["260px", "110px"],
+  ["240px", "110px"],
+  ["220px", "110px"],
+  ["200px", "110px"],
+  ["180px", "110px"],
+  //yellow
+  ["175px", "83px"],
+  ["175px", "75px"],
+  ["175px", "60px"],
+  ["175px", "40px"],
+  ["175px", "30px"],
+  ["175px", "16px"],
+  ["140px", "16px"],
+];
 let size = "10px";
 let player1 = {
   equipe: "",
@@ -334,6 +397,26 @@ let leftRed = rPosCases[1][1];
 let topBlue = bPosCases[1][0];
 let leftBlue = bPosCases[1][1];
 let numberGoingPlaying = 0;
+
+let tY1 = 0;
+let tY2 = 0;
+let tY3 = 0;
+let tY4 = 0;
+
+let tG1 = 0;
+let tG2 = 0;
+let tG3 = 0;
+let tG4 = 0;
+
+let tR1 = 0;
+let tR2 = 0;
+let tR3 = 0;
+let tR4 = 0;
+
+let tB1 = 0;
+let tB2 = 0;
+let tB3 = 0;
+let tB4 = 0;
 const verif = (p) => {
   switch (p) {
     case yp1:
@@ -506,15 +589,6 @@ function randomFunction(p) {
       break;
   }
 }
-p2.addEventListener("click", () => {
-  selectNumberPlaying(p2);
-});
-p3.addEventListener("click", () => {
-  selectNumberPlaying(p3);
-});
-p4.addEventListener("click", () => {
-  selectNumberPlaying(p4);
-});
 
 const selectNumberPlaying = (pg) => {
   pg.addEventListener("click", () => {
@@ -676,3 +750,93 @@ const systemTurn = () => {
       break;
   }
 };
+const translatePosition = (e) => {
+  let translate;
+  switch (e) {
+    case eY1 || eY2 || eY3 || eY4:
+      translate = 2;
+      switch (e) {
+        case eY1:
+          tY1 = eY1 + translate;
+          break;
+        case eY2:
+          tY2 = eY2 + translate;
+          break;
+        case eY3:
+          tY3 = eY3 + translate;
+          break;
+        case eY4:
+          tY4 = eY4 + translate;
+          break;
+      }
+      break;
+
+    case eG1 || eG2 || eG3 || eG4:
+      if (e < 11) {
+        translate = 41;
+      } else {
+        translate = 3;
+      }
+      switch (e) {
+        case eG1:
+          tG1 = eG1 + translate;
+          break;
+        case eG2:
+          tG2 = eG2 + translate;
+          break;
+        case eG3:
+          tG3 = eG3 + translate;
+          break;
+        case eG4:
+          tG4 = eG4 + translate;
+          break;
+      }
+      break;
+
+    case eR1 || eR2 || eR3 || eR4:
+      translate = 28;
+      switch (e) {
+        case eR1:
+          tR1 = eR1 + translate;
+          break;
+        case eR2:
+          tR2 = eR2 + translate;
+          break;
+        case eR3:
+          tR3 = eR3 + translate;
+          break;
+        case eR4:
+          tR4 = eR4 + translate;
+          break;
+      }
+      break;
+
+    case eB1 || eB2 || eB3 || eB4:
+      translate = 15;
+      switch (e) {
+        case eB1:
+          tB1 = eB1 + translate;
+          break;
+        case eB2:
+          tB2 = eB2 + translate;
+          break;
+        case eB3:
+          tB3 = eB3 + translate;
+          break;
+        case eB4:
+          tB4 = eB4 + translate;
+          break;
+      }
+      break;
+  }
+};
+
+p2.addEventListener("click", () => {
+  selectNumberPlaying(p2);
+});
+p3.addEventListener("click", () => {
+  selectNumberPlaying(p3);
+});
+p4.addEventListener("click", () => {
+  selectNumberPlaying(p4);
+});
