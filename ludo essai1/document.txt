@@ -4,7 +4,7 @@ To do :
  sortie des pions /X/
  les dés /X/
  Faire les tours /X/
- le déplacement (qui sera mega long)/C/(finalemnet non)
+ le déplacement (qui sera mega long)/X/(finalemnet non)
  les fins
  les barrières 
  choix de qui avance lorsque qulequ-un possède plusieurs pions
@@ -13,5 +13,5 @@ To do :
  definition des 6 
  la chasse
  la sortie du jugement 
- definition des cases dans (position en Y et X) dans un tableau/C/
+ definition des cases dans (position en Y et X) dans un tableau/X/
  coriger le positions de départ

@@ -30,6 +30,7 @@ const p3 = document.getElementById("p3");
 const p4 = document.getElementById("p4");
 const h4 = document.getElementById("h4");
 const turnTimer = document.getElementById("turnTimer");
+const turning = document.querySelector(".turn-timer");
 console.log();
 let d;
 let turns;
@@ -369,24 +370,40 @@ let player4 = {
   playing: true,
 };
 let eY1 = 1;
-let eY2 = 2;
-let eY3 = 3;
-let eY4 = 4;
+let eY2 = 1;
+let eY3 = 1;
+let eY4 = 1;
+let aY1 = 0;
+let aY2 = 0;
+let aY3 = 0;
+let aY4 = 0;
 
 let eG1 = 1;
-let eG2 = 2;
-let eG3 = 3;
-let eG4 = 4;
+let eG2 = 1;
+let eG3 = 1;
+let eG4 = 1;
+let aG1 = 0;
+let aG2 = 0;
+let aG3 = 0;
+let aG4 = 0;
 
 let eR1 = 1;
-let eR2 = 2;
-let eR3 = 3;
-let eR4 = 4;
+let eR2 = 1;
+let eR3 = 1;
+let eR4 = 1;
+let aR1 = 0;
+let aR2 = 0;
+let aR3 = 0;
+let aR4 = 0;
 
 let eB1 = 1;
-let eB2 = 2;
-let eB3 = 3;
-let eB4 = 4;
+let eB2 = 1;
+let eB3 = 1;
+let eB4 = 1;
+let aB1 = 0;
+let aB2 = 0;
+let aB3 = 0;
+let aB4 = 0;
 
 let topYellow = yPosCases[1][0];
 let leftYellow = yPosCases[1][1];
@@ -417,78 +434,216 @@ let tB1 = 0;
 let tB2 = 0;
 let tB3 = 0;
 let tB4 = 0;
-const verif = (p) => {
+
+const barrer = [
+  tY1,
+  tY2,
+  tY3,
+  tY4,
+  tG1,
+  tG2,
+  tG3,
+  tG4,
+  tR1,
+  tR2,
+  tR3,
+  tR4,
+  tB1,
+  tB2,
+  tB3,
+  tB4,
+];
+let yellowStarted = 0;
+let greenStarted = 0;
+let blueStarted = 0;
+let redStarted = 0;
+
+let y1Started = false;
+let y2Started = false;
+let y3Started = false;
+let y4Started = false;
+
+let g1Started = false;
+let g2Started = false;
+let g3Started = false;
+let g4Started = false;
+
+let r1Started = false;
+let r2Started = false;
+let r3Started = false;
+let r4Started = false;
+
+let b1Started = false;
+let b2Started = false;
+let b3Started = false;
+let b4Started = false;
+
+let yStarted = [y1Started, y2Started, y3Started, y4Started];
+
+const sytemBarrer = () => {};
+const translatePosition = (e) => {
+  let translate;
+  switch (e) {
+    case eY1 || eY2 || eY3 || eY4:
+      translate = 2;
+      switch (e) {
+        case eY1:
+          aY1 = tY1;
+          tY1 = eY1 + translate;
+          break;
+        case eY2:
+          aY2 = tY2;
+          tY2 = eY2 + translate;
+          break;
+        case eY3:
+          aY3 = tY3;
+          tY3 = eY3 + translate;
+          break;
+        case eY4:
+          aY4 + tY4;
+          tY4 = eY4 + translate;
+          break;
+      }
+      break;
+
+    case eG1 || eG2 || eG3 || eG4:
+      e <= 11 ? (translate = 41) : (translate = -11);
+      switch (e) {
+        case eG1:
+          aG1 = tG1;
+          tG1 = eG1 + translate;
+          break;
+        case eG2:
+          aG2 = tG2;
+          tG2 = eG2 + translate;
+          break;
+        case eG3:
+          aG3 = tG3;
+          tG3 = eG3 + translate;
+          break;
+        case eG4:
+          aG4 = tG4;
+          tG4 = eG4 + translate;
+          break;
+      }
+      break;
+
+    case eR1 || eR2 || eR3 || eR4:
+      e <= 24 ? (translate = 28) : (translate = -24);
+      switch (e) {
+        case eR1:
+          aR1 = tR1;
+          tR1 = eR1 + translate;
+          break;
+        case eR2:
+          aR2 = tR2;
+          tR2 = eR2 + translate;
+          break;
+        case eR3:
+          aR3 = tR3;
+          tR3 = eR3 + translate;
+          break;
+        case eR4:
+          tR4 = eR4 + translate;
+          break;
+      }
+      break;
+
+    case eB1 || eB2 || eB3 || eB4:
+      e <= 37 ? (translate = 15) : (translate = -37);
+      switch (e) {
+        case eB1:
+          aB1 = tB1;
+          tB1 = eB1 + translate;
+          break;
+        case eB2:
+          aB2 = tB2;
+          tB2 = eB2 + translate;
+          break;
+        case eB3:
+          aB3 = tB3;
+          tB3 = eB3 + translate;
+          break;
+        case eB4:
+          aB4 = tB4;
+          tB4 = eB4 + translate;
+          break;
+      }
+      break;
+  }
+};
+const verif = (p, df) => {
   switch (p) {
     case yp1:
-      eY1 += d;
+      eY1 += df;
       topYellow = yPosCases[eY1][0];
       leftYellow = yPosCases[eY1][1];
       start(yp1);
       break;
     case yp2:
-      eY2 += d;
+      eY2 += df;
       topYellow = yPosCases[eY2][0];
       leftYellow = yPosCases[eY2][1];
       start(yp2);
       break;
     case yp3:
-      eY3 += d;
+      eY3 += df;
       topYellow = yPosCases[eY3][0];
       leftYellow = yPosCases[eY3][1];
       start(yp3);
       break;
     case yp4:
-      eY4 += d;
+      eY4 += df;
       topYellow = yPosCases[eY4][0];
       leftYellow = yPosCases[eY4][1];
       start(yp4);
       break;
 
     case gp1:
-      eG1 += d;
+      eG1 += df;
       topGreen = gPosCases[eG1][0];
       leftGreen = gPosCases[eG1][1];
       start(gp1);
       break;
     case gp2:
-      eG2 += d;
+      eG2 += df;
       topGreen = gPosCases[eG2][0];
       leftGreen = gPosCases[eG2][1];
       start(gp2);
       break;
     case gp3:
-      eG3 += d;
+      eG3 += df;
       topGreen = gPosCases[eG3][0];
       leftGreen = gPosCases[eG3][1];
       start(gp3);
       break;
     case gp4:
-      eG4 += d;
+      eG4 += df;
       topGreen = gPosCases[eG4][0];
       leftGreen = gPosCases[eG4][1];
       start(gp4);
       break;
 
     case rp1:
-      eR1 += d;
+      eR1 += df;
       topRed = rPosCases[eR1][0];
       leftRed = rPosCases[eR1][1];
       start(rp1);
       break;
     case rp2:
-      eR2 += d;
+      eR2 += df;
       topRed = rPosCases[eR2][0];
       leftRed = rPosCases[eR2][1];
       start(rp2);
       break;
     case rp3:
-      eR3 += d;
+      eR3 += df;
       topRed = rPosCases[eR3][0];
       leftRed = rPosCases[eR3][1];
       start(rp3);
       break;
     case rp4:
-      eR4 += d;
+      eR4 += df;
       topRed = rPosCases[eR4][0];
       leftRed = rPosCases[eR4][1];
       start(rp4);
@@ -520,119 +675,81 @@ const verif = (p) => {
       break;
   }
 };
-function randomFunction(p) {
+function randomFunction(p, de, df) {
   d = Math.floor(Math.random() * 6 + 1);
   h4.textContent = d;
-  switch (p) {
-    case yp1:
-      verif(yp1);
-      break;
+  if (de === true) {
+    switch (p) {
+      case yp1:
+        verif(yp1, df);
+        break;
 
-    case yp2:
-      verif(yp2);
-      break;
+      case yp2:
+        verif(yp2, df);
+        break;
 
-    case yp3:
-      verif(yp3);
-      break;
+      case yp3:
+        verif(yp3, df);
+        break;
 
-    case yp4:
-      verif(yp4);
-      break;
+      case yp4:
+        verif(yp4, df);
+        break;
 
-    case gp1:
-      verif(gp1);
-      break;
+      case gp1:
+        verif(gp1, df);
+        break;
 
-    case gp2:
-      verif(gp2);
-      break;
+      case gp2:
+        verif(gp2, df);
+        break;
 
-    case gp3:
-      verif(gp3);
-      break;
+      case gp3:
+        verif(gp3, df);
+        break;
 
-    case gp4:
-      verif(gp4);
-      break;
+      case gp4:
+        verif(gp4, df);
+        break;
 
-    case rp1:
-      verif(rp1);
-      break;
+      case rp1:
+        verif(rp1, df);
+        break;
 
-    case rp2:
-      verif(rp2);
-      break;
+      case rp2:
+        verif(rp2, df);
+        break;
 
-    case rp3:
-      verif(rp3);
-      break;
+      case rp3:
+        verif(rp3, df);
+        break;
 
-    case rp4:
-      verif(rp4);
-      break;
+      case rp4:
+        verif(rp4, df);
+        break;
 
-    case bp1:
-      verif(bp1);
-      break;
+      case bp1:
+        verif(bp1, df);
+        break;
 
-    case bp2:
-      verif(bp2);
-      break;
+      case bp2:
+        verif(bp2, df);
+        break;
 
-    case bp3:
-      verif(bp3);
-      break;
+      case bp3:
+        verif(bp3, df);
+        break;
 
-    case bp4:
-      verif(bp4);
-      break;
+      case bp4:
+        verif(bp4, df);
+        break;
+    }
+  } else {
+    return d;
   }
 }
 
-const selectNumberPlaying = (pg) => {
-  pg.addEventListener("click", () => {
-    numberPlaying.style.display = "none";
-  });
-  switch (pg) {
-    case p2:
-      player3.playing = false;
-      player4.playing = false;
-      numberGoingPlaying = 2;
-      break;
-    case p3:
-      player4.playing = false;
-      numberGoingPlaying = 3;
-      break;
-    case p4:
-      numberGoingPlaying = 4;
-  }
-  allStart();
-};
 console.log();
-const allStart = () => {
-  switch (numberGoingPlaying) {
-    case 2:
-      player1.equipe = "yellow";
-      player2.equipe = "green";
-      break;
-    case 3:
-      player1.equipe = "yellow";
-      player2.equipe = "green";
-      player3.equipe = "red";
-      break;
-    case 4:
-      player1.equipe = "yellow";
-      player2.equipe = "green";
-      player3.equipe = "red";
-      player4.equipe = "blue";
-      break;
-  }
-  guiTurn();
-  setInterval(() => {
-    systemTurn();
-  }, 12000 * numberGoingPlaying);
-};
 const start = (y) => {
   switch (y) {
     case yp1 || yp2 || yp3 || yp4:
@@ -746,91 +863,69 @@ const systemTurn = () => {
   }
   switch (permitedTurn) {
     case 1:
-      randomFunction(yp1);
-      break;
-  }
-};
-const translatePosition = (e) => {
-  let translate;
-  switch (e) {
-    case eY1 || eY2 || eY3 || eY4:
-      translate = 2;
-      switch (e) {
-        case eY1:
-          tY1 = eY1 + translate;
-          break;
-        case eY2:
-          tY2 = eY2 + translate;
-          break;
-        case eY3:
-          tY3 = eY3 + translate;
-          break;
-        case eY4:
-          tY4 = eY4 + translate;
-          break;
+      randomFunction(0, false, 0);
+      if (yellowStarted === 0 && d === 6) {
+        randomFunction(yp1, true, 1);
+        y1Started = true;
+        yellowStarted++;
+      }
+      if (yellowStarted !== 0) {
+        for (const user of yStarted) {
+          user === true ? console.log("true") : console.log("true");
+        }
       }
       break;
-
-    case eG1 || eG2 || eG3 || eG4:
-      if (e < 11) {
-        translate = 41;
-      } else {
-        translate = 3;
-      }
-      switch (e) {
-        case eG1:
-          tG1 = eG1 + translate;
-          break;
-        case eG2:
-          tG2 = eG2 + translate;
-          break;
-        case eG3:
-          tG3 = eG3 + translate;
-          break;
-        case eG4:
-          tG4 = eG4 + translate;
-          break;
-      }
+    case 2:
       break;
-
-    case eR1 || eR2 || eR3 || eR4:
-      translate = 28;
-      switch (e) {
-        case eR1:
-          tR1 = eR1 + translate;
-          break;
-        case eR2:
-          tR2 = eR2 + translate;
-          break;
-        case eR3:
-          tR3 = eR3 + translate;
-          break;
-        case eR4:
-          tR4 = eR4 + translate;
-          break;
-      }
+    case 3:
       break;
-
-    case eB1 || eB2 || eB3 || eB4:
-      translate = 15;
-      switch (e) {
-        case eB1:
-          tB1 = eB1 + translate;
-          break;
-        case eB2:
-          tB2 = eB2 + translate;
-          break;
-        case eB3:
-          tB3 = eB3 + translate;
-          break;
-        case eB4:
-          tB4 = eB4 + translate;
-          break;
-      }
+    case 4:
       break;
   }
 };
 
+const allStart = () => {
+  switch (numberGoingPlaying) {
+    case 2:
+      player1.equipe = "yellow";
+      player2.equipe = "green";
+      break;
+    case 3:
+      player1.equipe = "yellow";
+      player2.equipe = "green";
+      player3.equipe = "red";
+      break;
+    case 4:
+      player1.equipe = "yellow";
+      player2.equipe = "green";
+      player3.equipe = "red";
+      player4.equipe = "blue";
+      break;
+  }
+};
+const selectNumberPlaying = (pg) => {
+  pg.addEventListener("click", () => {
+    numberPlaying.style.display = "none";
+  });
+  switch (pg) {
+    case p2:
+      player3.playing = false;
+      player4.playing = false;
+      numberGoingPlaying = 2;
+      break;
+    case p3:
+      player4.playing = false;
+      numberGoingPlaying = 3;
+      break;
+    case p4:
+      numberGoingPlaying = 4;
+  }
+  allStart();
+  guiTurn();
+  setInterval(() => {
+    systemTurn();
+  }, 12000 * numberGoingPlaying);
+};
 p2.addEventListener("click", () => {
   selectNumberPlaying(p2);
 });

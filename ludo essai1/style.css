@@ -269,7 +269,11 @@ h4 {
   font-size: 2rem;
   text-align: center;
 }
-
+.turn-timer::after {
+  content: var(--turn);
+  background-color: grey;
+  font-size: 1.5rem;
+}
 #p2 {
   border: 1px solid black;
   border-radius: 5px;
