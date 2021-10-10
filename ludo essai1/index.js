@@ -31,6 +31,10 @@ const p4 = document.getElementById("p4");
 const h4 = document.getElementById("h4");
 const turnTimer = document.getElementById("turnTimer");
 const turning = document.querySelector(".turn-timer");
+
+const indication = document.querySelector(".indication");
+const ind = document.getElementById("ind");
+
 console.log();
 let d;
 let turns;
@@ -458,27 +462,116 @@ let greenStarted = 0;
 let blueStarted = 0;
 let redStarted = 0;
 
-let y1Started = false;
-let y2Started = false;
-let y3Started = false;
-let y4Started = false;
+let y1Started = {
+  started: false,
+  alreadyDeclared: false,
+  identity: yp1,
+  e: 1,
+  a: 1,
+  t: 1,
+};
+let y2Started = {
+  started: false,
+  alreadyDeclared: false,
+  identity: yp2,
+  e: 1,
+  a: 1,
+  t: 1,
+};
+let y3Started = {
+  started: false,
+  alreadyDeclared: false,
+  identity: yp3,
+  e: 1,
+  a: 1,
+  t: 1,
+};
+let y4Started = {
+  started: false,
+  alreadyDeclared: false,
+  identity: yp4,
+  e: 1,
+  a: 1,
+  t: 1,
+};
 
-let g1Started = false;
-let g2Started = false;
-let g3Started = false;
-let g4Started = false;
+let g1Started = {
+  started: false,
+  alreadyDeclared: false,
+  identity: gp1,
+  e: 1,
+  a: 1,
+  t: 1,
+};
+let g2Started = {
+  started: false,
+  alreadyDeclared: false,
+  identity: gp1,
+  e: 1,
+  a: 1,
+  t: 1,
+};
+let g3Started = {
+  started: false,
+  alreadyDeclared: false,
+  identity: gp1,
+  e: 1,
+  a: 1,
+  t: 1,
+};
+let g4Started = {
+  started: false,
+  alreadyDeclared: false,
+  identity: gp1,
+  e: 1,
+  a: 1,
+  t: 1,
+};
 
-let r1Started = false;
-let r2Started = false;
-let r3Started = false;
-let r4Started = false;
+let r1Started = {
+  started: false,
+  alreadyDeclared: false,
+  identity: gp1,
+};
+let r2Started = {
+  started: false,
+  alreadyDeclared: false,
+  identity: gp2,
+};
+let r3Started = {
+  started: false,
+  alreadyDeclared: false,
+  identity: gp3,
+};
+let r4Started = {
+  started: false,
+  alreadyDeclared: false,
+  identity: gp4,
+};
 
-let b1Started = false;
-let b2Started = false;
-let b3Started = false;
-let b4Started = false;
+let b1Started = {
+  started: false,
+  alreadyDeclared: false,
+  identity: bp1,
+};
+let b2Started = {
+  started: false,
+  alreadyDeclared: false,
+  identity: bp2,
+};
+let b3Started = {
+  started: false,
+  alreadyDeclared: false,
+  identity: bp3,
+};
+let b4Started = {
+  started: false,
+  alreadyDeclared: false,
+  identity: bp4,
+};
 
 let yStarted = [y1Started, y2Started, y3Started, y4Started];
+let yellowStarteds = 0;
 
 const sytemBarrer = () => {};
 const translatePosition = (e) => {
@@ -673,7 +766,44 @@ const verif = (p, df) => {
       leftBlue = bPosCases[eB4][1];
       start(bp4);
       break;
+    default:
+      null;
+      break;
   }
+  return (
+    eY1,
+    eY2,
+    eY3,
+    eY4,
+    eG1,
+    eG2,
+    eG3,
+    eG4,
+    eR1,
+    eR2,
+    eR3,
+    eR4,
+    eB1,
+    eB2,
+    eB3,
+    eB4,
+    tY1,
+    tY2,
+    tY3,
+    tY4,
+    tG1,
+    tG2,
+    tG3,
+    tG4,
+    tR1,
+    tR2,
+    tR3,
+    tR4,
+    tB1,
+    tB2,
+    tB3,
+    tB4
+  );
 };
 function randomFunction(p, de, df) {
   d = Math.floor(Math.random() * 6 + 1);
@@ -826,6 +956,29 @@ const guiTurn = () => {
   }, 12000);
 };
 const systemTurn = () => {
+  const h = (e, can) => {
+    ind.textContent = "veuillez cliquez sur le pion que vous voulez demarrer";
+    e.identity.addEventListener("click", () => {
+      if (can === false) {
+        randomFunction(e.identity, true, 0);
+      }
+      can = true;
+      e.started = true;
+      return can;
+    });
+  };
+  const h2 = (e, can) => {
+    ind.textContent =
+      "veuillez cliquez sur pion avec lequel vous voulez avancer";
+    e.identity.addEventListener("click", () => {
+      if (can === false) {
+        randomFunction(e.identity, true, d);
+      }
+      can = true;
+      e.started = true;
+      return can;
+    });
+  };
   switch (numberGoingPlaying) {
     case 2:
       setInterval(() => {
@@ -863,16 +1016,32 @@ const systemTurn = () => {
   }
   switch (permitedTurn) {
     case 1:
-      randomFunction(0, false, 0);
+      randomFunction(null, false, 0);
       if (yellowStarted === 0 && d === 6) {
-        randomFunction(yp1, true, 1);
-        y1Started = true;
+        randomFunction(yp1, true, 0);
+        y1Started.started = true;
+        y1Started.alreadyDeclared = true;
         yellowStarted++;
+      } else if (yellowStarted !== 0 && d === 6) {
+        let can = false;
+        document.getElementById("wantGetOut").addEventListener("click", (e) => {
+          h(y1Started, can);
+          h(y2Started, can);
+          h(y3Started, can);
+        });
+        document.getElementById("donot").addEventListener("click", () => {
+          let can = false;
+          h(y4Started, can);
+          h2(y1Started, can);
+          h2(y2Started, can);
+          h2(y3Started, can);
+          h2(y4Started, can);
+        });
       }
-      if (yellowStarted !== 0) {
-        for (const user of yStarted) {
-          user === true ? console.log("true") : console.log("true");
-        }
+      for (const user of yStarted) {
+        user.started === true && user.alreadyDeclared === false
+          ? yellowStarted++
+          : console.log("false");
       }
       break;
     case 2:

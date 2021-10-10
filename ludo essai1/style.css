@@ -266,13 +266,13 @@ h4 {
 #turnTimer {
   color: white;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  font-size: 2rem;
+  font-size: 1rem;
   text-align: center;
 }
 .turn-timer::after {
   content: var(--turn);
   background-color: grey;
-  font-size: 1.5rem;
+  font-size: 0.5rem;
 }
 #p2 {
   border: 1px solid black;
@@ -289,4 +289,15 @@ h4 {
   border: 1px solid black;
   border-radius: 5px;
   background: wheat;
+}
+.indication {
+  background: grey;
+  text-align: center;
+  width: 50vh;
+  margin: 0 auto;
+  border-radius: 7px;
+}
+#ind {
+  font-size: 1.25rem;
+  color: black;
 }
